@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BC Konyhák - Egyedi konyhabútor tervezés és kivitelezés természetes anyagokból, időtálló részletekkel. Prémium minőségű asztalosmunkák Budapesten és környékén.">
+    <meta name="keywords" content="egyedi konyha, prémium konyhabútor, asztalos konyha, tölgyfa konyha, olívazöld konyha, konyhabútor gyártás, belsőépítészet, asztalos Budapest">
+    <meta name="author" content="BC Konyhák">
+    <title>BC Konyhák | Egyedi konyhák természetes anyagokból, időtálló részletekkel</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- FontAwesome for minimalist icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header / Navigáció -->
+    <header id="main-header" class="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo" id="header-logo">
+                <span class="logo-title">BC KONYHÁK</span>
+                <span class="logo-subtitle">ASZTALOS MŰHELY</span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#rolunk" class="nav-link">Rólunk</a></li>
+                    <li><a href="#szolgaltatasok" class="nav-link">Szolgáltatások</a></li>
+                    <li><a href="#kiemelt" class="nav-link">Kiemelt Projekt</a></li>
+                    <li><a href="#galeria" class="nav-link">Galéria</a></li>
+                    <li><a href="#folyamat" class="nav-link">Munkafolyamat</a></li>
+                    <li><a href="#kapcsolat" class="nav-link nav-btn">Ajánlatkérés</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Menü megnyitása">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Hero szekció -->
+        <section id="hero" class="hero-section">
+            <div class="hero-bg-container">
+                <img src="assets/images/kitchen_overview.jpg" alt="BC Konyhák prémium olívazöld és tölgyfa konyha" class="hero-bg-img">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container hero-content-wrapper">
+                <div class="hero-text-box fade-in">
+                    <span class="hero-tag">BC KONYHÁK</span>
+                    <h1 class="hero-title">Egyedi konyhák, ahol a természetes anyagok és az átgondolt részletek találkoznak.</h1>
+                    <p class="hero-subtitle">Egyedi konyhák természetes anyagokból, időtálló részletekkel.</p>
+                    <div class="hero-actions">
+                        <a href="#galeria" class="btn btn-primary" id="hero-btn-gallery">Referenciák</a>
+                        <a href="#kapcsolat" class="btn btn-secondary" id="hero-btn-contact">Kapcsolat</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span class="mouse-scroll">
+                    <span class="mouse-wheel"></span>
+                </span>
+                <span class="scroll-text">Görgessen a részletekért</span>
+            </div>
+        </section>
+
+        <!-- 2. Bemutatkozás -->
+        <section id="rolunk" class="about-section section-padding scroll-reveal">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <span class="section-tag">RÓLUNK</span>
+                        <h2 class="section-title">A természetes fa melegsége, a modern építészet tisztasága</h2>
+                        <div class="divider"></div>
+                        <p class="lead-text">
+                            A BC Konyháknál hiszünk abban, hogy a konyha az otthon lelke. Olyan tereket alkotunk, amelyek nemcsak funkcionálisak, hanem esztétikai élményt és nyugalmat nyújtanak a mindennapokban.
+                        </p>
+                        <p class="body-text">
+                            Minden egyes munkánkat a prémium anyagok tisztelete, a személyre szabott tervezés és az asztalosmesterség legmagasabb szintű precizitása jellemzi. Az olívazöld mélysége, a természetes tölgyfa felületek melegsége és a világos kőfelületek harmóniája olyan időtálló dizájnt teremt, amely generációkon át szolgálja az Ön otthonát.
+                        </p>
+                        <p class="body-text">
+                            Nem sablonokban gondolkodunk: minden fiókot, polcot és beépített rendszert az Ön egyedi igényeire és életvitelére szabunk, ötvözve a hagyományos kézművességet a legmodernebb vasalatokkal és technológiákkal.
+                        </p>
+                    </div>
+                    <div class="about-image-wrapper">
+                        <div class="image-reveal-container">
+                            <img src="assets/images/oak_wardrobe.jpg" alt="Egyedi tölgyfa beépített szekrény és polcrendszer" class="about-img reveal-img">
+                        </div>
+                        <div class="about-image-badge">
+                            <span class="badge-num">100%</span>
+                            <span class="badge-text">Egyedi kézműves munka</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Szolgáltatások -->
+        <section id="szolgaltatasok" class="services-section section-padding alternate-bg scroll-reveal">
+            <div class="container">
+                <div class="section-header center-align">
+                    <span class="section-tag">SZOLGÁLTATÁSOK</span>
+                    <h2 class="section-title">Teljes körű megvalósítás az ötlettől a beépítésig</h2>
+                    <div class="divider center"></div>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Szolgáltatás 1 -->
+                    <div class="service-card" id="service-1">
+                        <div class="service-icon-wrapper">
+                            <i class="fa-solid fa-compass-drafting"></i>
+                        </div>
+                        <h3 class="service-card-title">Egyedi konyhabútor tervezés</h3>
+                        <p class="service-card-text">
+                            Belsőépítészeti szemléletű, személyre szabott 3D tervezés, ahol a térkihasználás, az ergonómia és az Ön egyedi stílusa tökéletes egységbe kerül.
+                        </p>
+                        <ul class="service-features">
+                            <li>3D látványtervezés</li>
+                            <li>Személyre szabott ergonómia</li>
+                            <li>Anyag- és színkoncepciók</li>
+                        </ul>
+                    </div>
+
+                    <!-- Szolgáltatás 2 -->
+                    <div class="service-card" id="service-2">
+                        <div class="service-icon-wrapper">
+                            <i class="fa-solid fa-hammer"></i>
+                        </div>
+                        <h3 class="service-card-title">Prémium kivitelezés</h3>
+                        <p class="service-card-text">
+                            Kézzel válogatott, minőségi fa alapanyagok, prémium felületkezelés és modern technológiák alkalmazása saját asztalosműhelyünkben.
+                        </p>
+                        <ul class="service-features">
+                            <li>Válogatott tölgyfa felületek</li>
+                            <li>Precíz élzárás és illesztések</li>
+                            <li>Prémium felületkezelő anyagok</li>
+                        </ul>
+                    </div>
+
+                    <!-- Szolgáltatás 3 -->
+                    <div class="service-card" id="service-3">
+                        <div class="service-icon-wrapper">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </div>
+                        <h3 class="service-card-title">Beépített tárolási megoldások</h3>
+                        <p class="service-card-text">
+                            Intelligens kamraszekrények, rejtett fiókok és egyedi belső elosztók, amelyek maximalizálják a helyet és fenntartják a minimalista rendet.
+                        </p>
+                        <ul class="service-features">
+                            <li>Csillapított záródású vasalatok</li>
+                            <li>Rejtett fiókrendszerek</li>
+                            <li>Személyre szabott elosztók</li>
+                        </ul>
+                    </div>
+
+                    <!-- Szolgáltatás 4 -->
+                    <div class="service-card" id="service-4">
+                        <div class="service-icon-wrapper">
+                            <i class="fa-solid fa-ruler-combined"></i>
+                        </div>
+                        <h3 class="service-card-title">Helyszíni felmérés és konzultáció</h3>
+                        <p class="service-card-text">
+                            Minden projektet milliméterpontos helyszíni lézeres felméréssel és részletes szakmai tanácsadással indítunk a tökéletes illeszkedésért.
+                        </p>
+                        <ul class="service-features">
+                            <li>Lézeres fal- és szögmérés</li>
+                            <li>Gépészeti kiállások egyeztetése</li>
+                            <li>Szakmai és anyagtanácsadás</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Kiemelt referencia projekt -->
+        <section id="kiemelt" class="featured-section section-padding scroll-reveal">
+            <div class="container">
+                <div class="featured-grid">
+                    <div class="featured-image-side">
+                        <div class="image-reveal-container">
+                            <img src="assets/images/coffee_station.jpg" alt="Természetes elegancia - prémium konyha részlet kávézó sarokkal" class="featured-img reveal-img">
+                        </div>
+                    </div>
+                    <div class="featured-content-side">
+                        <span class="section-tag">KIEMELT PROJEKT</span>
+                        <h2 class="section-title">Természetes elegancia</h2>
+                        <div class="divider"></div>
+                        <p class="lead-text">
+                            Olívazöld frontok, tölgyfa részletek és világos kőfelületek harmonikus találkozása egy modern, időtálló konyhában.
+                        </p>
+                        <p class="body-text">
+                            Ebben a kiemelt munkánkban a minimalista, építészeti megközelítés találkozik az otthonos melegséggel. A mély olívazöld bútorfrontokat természetes tölgyfa polcokkal és egy integrált kávézóállomással egészítettük ki, melynek hátterét világos kőburkolat díszíti.
+                        </p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Anyagok</span>
+                                <span class="spec-value">Természetes tölgy, prémium MDF, kvarckő munkalap</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Színek</span>
+                                <span class="spec-value">Mély olívazöld, meleg natúr tölgy, világos kő</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Helyszín</span>
+                                <span class="spec-value">Budapest, XII. kerület</span>
+                            </div>
+                        </div>
+                        <a href="#galeria" class="btn btn-secondary">Képek megtekintése</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Galéria -->
+        <section id="galeria" class="gallery-section section-padding alternate-bg scroll-reveal">
+            <div class="container">
+                <div class="section-header center-align">
+                    <span class="section-tag">GALÉRIA</span>
+                    <h2 class="section-title">Elkészült munkáink és részletek</h2>
+                    <div class="divider center"></div>
+                    <p class="section-subtitle">Tekintse meg közelebbről az anyagtársításokat, az illesztéseket és a beépített megoldásainkat.</p>
+                </div>
+
+                <div class="gallery-masonry">
+                    <!-- Kép 1 (Nagy vízszintes / Fő látkép) -->
+                    <div class="gallery-item size-large" data-index="0" data-src="assets/images/kitchen_overview.jpg">
+                        <img src="assets/images/kitchen_overview.jpg" alt="Egyedi olívazöld konyha hatalmas konyhaszigettel és tölgyfa bútorokkal">
+                        <div class="gallery-item-overlay">
+                            <span class="gallery-item-category">Belsőépítészet</span>
+                            <h4 class="gallery-item-title">Konyha és sziget teljes látképe</h4>
+                            <span class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Kép 2 (Álló / Tölgyfa szekrény) -->
+                    <div class="gallery-item size-tall" data-index="1" data-src="assets/images/oak_wardrobe.jpg">
+                        <img src="assets/images/oak_wardrobe.jpg" alt="Beépített tölgyfa szekrényrendszer nyitott és zárt tárolókkal">
+                        <div class="gallery-item-overlay">
+                            <span class="gallery-item-category">Asztalosmunka</span>
+                            <h4 class="gallery-item-title">Tölgyfa tárolórendszer és könyvespolc</h4>
+                            <span class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Kép 3 (Normál / Mosogató és ablak) -->
+                    <div class="gallery-item" data-index="2" data-src="assets/images/kitchen_sink.jpg">
+                        <img src="assets/images/kitchen_sink.jpg" alt="Olívazöld konyhabútor beépített mosogatóval és fekete ablakkerettel">
+                        <div class="gallery-item-overlay">
+                            <span class="gallery-item-category">Részlet</span>
+                            <h4 class="gallery-item-title">Mosogató szekció természetes fénnyel</h4>
+                            <span class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Kép 4 (Normál / Sziget és székek) -->
+                    <div class="gallery-item" data-index="3" data-src="assets/images/kitchen_island.jpg">
+                        <img src="assets/images/kitchen_island.jpg" alt="Világos kő konyhasziget beépített főzőlappal és olíva bárszékekkel">
+                        <div class="gallery-item-overlay">
+                            <span class="gallery-item-category">Részlet</span>
+                            <h4 class="gallery-item-title">Kvarckő konyhasziget beépített főzőlappal</h4>
+                            <span class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Kép 5 (Álló / Kávézó állomás) -->
+                    <div class="gallery-item size-tall" data-index="4" data-src="assets/images/coffee_station.jpg">
+                        <img src="assets/images/coffee_station.jpg" alt="Integrált kávézóállomás tölgyfa polcokkal és olívazöld frontokkal">
+                        <div class="gallery-item-overlay">
+                            <span class="gallery-item-category">Funkció</span>
+                            <h4 class="gallery-item-title">Beépített kávézó és sütő szekció</h4>
+                            <span class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Miért minket? -->
+        <section class="why-us-section section-padding scroll-reveal">
+            <div class="container">
+                <div class="why-us-grid">
+                    <div class="why-us-info">
+                        <span class="section-tag">ÉRTÉKEINK</span>
+                        <h2 class="section-title">A minőség nálunk nem kompromisszum, hanem alapvetés</h2>
+                        <div class="divider"></div>
+                        <p class="body-text">
+                            Minden BC Konyha mögött több száz óra tervezés, kézi megmunkálás és kompromisszummentes anyagválasztás áll. Nem csupán bútort gyártunk, hanem az otthona legfontosabb közösségi terét alkotjuk meg.
+                        </p>
+                    </div>
+                    
+                    <div class="why-us-points">
+                        <!-- Pont 1 -->
+                        <div class="why-point">
+                            <div class="point-num">01</div>
+                            <div class="point-content">
+                                <h3 class="point-title">Egyedi tervezés</h3>
+                                <p class="point-text">Minden konyhát teljesen az alapoktól, az Ön egyedi igényei, tárolási szokásai és a helyiség adottságai alapján tervezünk meg.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pont 2 -->
+                        <div class="why-point">
+                            <div class="point-num">02</div>
+                            <div class="point-content">
+                                <h3 class="point-title">Minőségi anyaghasználat</h3>
+                                <p class="point-text">Kizárólag gondosan válogatott, tartós természetes tölgyfát, prémium vasalatokat és ellenálló munkalapokat használunk fel.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pont 3 -->
+                        <div class="why-point">
+                            <div class="point-num">03</div>
+                            <div class="point-content">
+                                <h3 class="point-title">Precíz kivitelezés</h3>
+                                <p class="point-text">Asztalosmestereink a hagyományos fakötések és a modern CNC technológia ötvözésével milliméteres pontossággal dolgoznak.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pont 4 -->
+                        <div class="why-point">
+                            <div class="point-num">04</div>
+                            <div class="point-content">
+                                <h3 class="point-title">Időtálló design</h3>
+                                <p class="point-text">Az organikus anyagok és a letisztult építészeti formák harmóniája garantálja, hogy konyhája évtizedek múlva is modern és stílusos marad.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Munkafolyamat -->
+        <section id="folyamat" class="process-section section-padding alternate-bg scroll-reveal">
+            <div class="container">
+                <div class="section-header center-align">
+                    <span class="section-tag">FOLYAMAT</span>
+                    <h2 class="section-title">Út az Ön álomkonyhájáig</h2>
+                    <div class="divider center"></div>
+                    <p class="section-subtitle">Átlátható és tervezhető folyamat a konzultációtól az első közös kávéig az új konyhájában.</p>
+                </div>
+
+                <div class="process-steps">
+                    <div class="process-line"></div>
+                    
+                    <!-- Lépés 1 -->
+                    <div class="step-card" id="step-1">
+                        <div class="step-badge">1</div>
+                        <h3 class="step-title">Konzultáció</h3>
+                        <p class="step-text">Személyes vagy online egyeztetés során felmérjük az igényeit, megbeszéljük a stílust, az elrendezést és a költségkeretet.</p>
+                    </div>
+
+                    <!-- Lépés 2 -->
+                    <div class="step-card" id="step-2">
+                        <div class="step-badge">2</div>
+                        <h3 class="step-title">Tervezés</h3>
+                        <p class="step-text">Milliméterpontos felmérést követően részletes 3D látványterveket és funkcionális elrendezési terveket készítünk jóváhagyásra.</p>
+                    </div>
+
+                    <!-- Lépés 3 -->
+                    <div class="step-card" id="step-3">
+                        <div class="step-badge">3</div>
+                        <h3 class="step-title">Gyártás</h3>
+                        <p class="step-text">Saját műhelyünkben, odaadással és szakértelemmel szabjuk, csiszoljuk, felületkezeljük és szereljük össze bútorának elemeit.</p>
+                    </div>
+
+                    <!-- Lépés 4 -->
+                    <div class="step-card" id="step-4">
+                        <div class="step-badge">4</div>
+                        <h3 class="step-title">Beépítés</h3>
+                        <p class="step-text">Saját asztalosaink végzik a helyszíni beépítést, garantálva, hogy minden elem, gép és munkalap tökéletesen a helyére kerüljön.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Kapcsolat -->
+        <section id="kapcsolat" class="contact-section section-padding scroll-reveal">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info-side">
+                        <span class="section-tag">KAPCSOLAT</span>
+                        <h2 class="section-title">Valósítsuk meg együtt konyháját</h2>
+                        <div class="divider"></div>
+                        <p class="contact-desc">
+                            Kérdése van, vagy pontos ajánlatot szeretne? Írjon nekünk, és munkatársunk 48 órán belül felveszi Önnel a kapcsolatot a részletek egyeztetése céljából.
+                        </p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
+                                <div class="detail-content">
+                                    <span class="detail-label">Telefonszám</span>
+                                    <a href="tel:+36301234567" class="detail-value">+36 XX XXX XXXX</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div class="detail-content">
+                                    <span class="detail-label">E-mail cím</span>
+                                    <a href="mailto:info@bckonyhak.hu" class="detail-value">info@bckonyhak.hu</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="detail-content">
+                                    <span class="detail-label">Működési terület</span>
+                                    <span class="detail-value">Budapest és környéke</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-side">
+                        <form id="contact-form" class="contact-form" novalidate>
+                            <h3 class="form-title">Kérjen egyedi ajánlatot</h3>
+                            
+                            <div class="form-group">
+                                <input type="text" id="form-name" name="name" required placeholder=" ">
+                                <label for="form-name">Név *</label>
+                                <span class="error-msg">A név megadása kötelező.</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="tel" id="form-phone" name="phone" placeholder=" ">
+                                <label for="form-phone">Telefonszám</label>
+                                <span class="error-msg">Kérjük, érvényes telefonszámot adjon meg.</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" id="form-email" name="email" required placeholder=" ">
+                                <label for="form-email">E-mail cím *</label>
+                                <span class="error-msg">Kérjük, érvényes e-mail címet adjon meg.</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea id="form-message" name="message" rows="5" required placeholder=" "></textarea>
+                                <label for="form-message">Üzenet *</label>
+                                <span class="error-msg">Kérjük, írja meg az üzenetét.</span>
+                            </div>
+                            
+                            <div class="form-privacy">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="form-privacy-check" required>
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox-label">Elfogadom az <a href="#" class="privacy-link">Adatkezelési Tájékoztatót</a>. *</span>
+                                </label>
+                                <span class="error-msg privacy-error">Az adatkezelési nyilatkozat elfogadása kötelező.</span>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-submit" id="form-submit-btn">
+                                <span>Ajánlatkérés</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            
+                            <div id="form-success" class="form-feedback success">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <p>Köszönjük megkeresését! Üzenetét sikeresen továbbítottuk, hamarosan jelentkezünk.</p>
+                            </div>
+                            <div id="form-error" class="form-feedback error">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                <p>Hiba történt a küldés során. Kérjük, ellenőrizze az adatokat, vagy küldjön e-mailt!</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 9. Lábléc -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand-col">
+                <a href="#" class="logo footer-logo">
+                    <span class="logo-title">BC KONYHÁK</span>
+                    <span class="logo-subtitle">ASZTALOS MŰHELY</span>
+                </a>
+                <p class="footer-tagline">Egyedi konyhák természetes anyagokból, időtálló részletekkel.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-nav-col">
+                <h4 class="footer-col-title">Navigáció</h4>
+                <ul class="footer-links">
+                    <li><a href="#rolunk">Rólunk</a></li>
+                    <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
+                    <li><a href="#kiemelt">Kiemelt Projekt</a></li>
+                    <li><a href="#galeria">Galéria</a></li>
+                    <li><a href="#folyamat">Folyamat</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact-col">
+                <h4 class="footer-col-title">Kapcsolat</h4>
+                <ul class="footer-info">
+                    <li><i class="fa-solid fa-phone"></i> <a href="tel:+36301234567">+36 XX XXX XXXX</a></li>
+                    <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@bckonyhak.hu">info@bckonyhak.hu</a></li>
+                    <li><i class="fa-solid fa-location-dot"></i> Budapest és környéke</li>
+                    <li><i class="fa-solid fa-clock"></i> Hétfő - Péntek: 8:00 - 17:00</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p class="copyright">&copy; 2026 BC Konyhák. Minden jog fenntartva.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Adatvédelem</a>
+                    <a href="#">ÁSZF</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal a Galériához -->
+    <div id="gallery-lightbox" class="lightbox-modal" aria-hidden="true" role="dialog">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Bezárás">&times;</button>
+        <button class="lightbox-prev" id="lightbox-prev" aria-label="Előző kép">&#10094;</button>
+        <button class="lightbox-next" id="lightbox-next" aria-label="Következő kép">&#10095;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Nagyított galériakép">
+            <div class="lightbox-caption">
+                <span id="lightbox-category" class="caption-category">Kategória</span>
+                <h4 id="lightbox-title" class="caption-title">Kép címe</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script file -->
+    <script src="script.js"></script>
+</body>
+</html>
