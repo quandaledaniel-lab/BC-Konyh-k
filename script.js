@@ -292,16 +292,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 6. KONYHA ÁRKALKULÁTOR LOGIKA ---
     
     // Konfigurációs objektum a könnyű módosíthatóságért
-    const calcConfig = {
-        basePricePerMetre: 1000000, // 1 000 000 Ft folyóméterenként
-        designModifiers: {
-            Standard: 0,
-            Egyedi: 0
-        },
-        storageModifiers: {
-            Alap: 0,
-            Premium: 0
-        }
+    const PRICING = {
+        pricePerMeter: 1000000,
+        customDesignExtra: 2000000,
+        premiumStorageExtra: 2000000
     };
 
     const calcRange = document.getElementById('calc-range');
@@ -312,6 +306,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const summaryDesign = document.getElementById('summary-design');
     const summaryStorage = document.getElementById('summary-storage');
     const calcCtaBtn = document.getElementById('calc-cta-btn');
+    
+    const breakdownBase = document.getElementById('breakdown-base');
+    const breakdownDesignRow = document.getElementById('breakdown-design-row');
+    const breakdownDesign = document.getElementById('breakdown-design');
+    const breakdownStorageRow = document.getElementById('breakdown-storage-row');
+    const breakdownStorage = document.getElementById('breakdown-storage');
+    const breakdownTotal = document.getElementById('breakdown-total');
     
     const designCards = document.querySelectorAll('#design-type-grid .calc-card');
     const storageCards = document.querySelectorAll('#storage-type-grid .calc-card');
@@ -362,16 +363,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const calculatePrice = () => {
         const length = parseInt(calcRange.value, 10) || 5;
         
-        // Számítási képlet: hossz * 1 000 000 Ft
-        const totalPrice = length * calcConfig.basePricePerMetre;
+        const isCustomDesign = (activeDesign === "Egyedi");
+        const isPremiumStorage = (activeStorage === "Prémium" || activeStorage === "Premium");
         
-        // Animált kiíratás indítása
+        // Számítási képlet: hossz * 1 000 000 Ft + extrák
+        const basePrice = length * PRICING.pricePerMeter;
+        const designExtra = isCustomDesign ? PRICING.customDesignExtra : 0;
+        const storageExtra = isPremiumStorage ? PRICING.premiumStorageExtra : 0;
+        
+        const totalPrice = basePrice + designExtra + storageExtra;
+        
+        // Animált főár kiíratás indítása
         animatePrice(totalPrice);
         
-        // Összegző kártya frissítése
+        // Összegző kártya szövegeinek frissítése
         summaryLength.textContent = `${length} folyóméter`;
-        summaryDesign.textContent = activeDesign === "Standard" ? "Standard" : "Egyedi";
-        summaryStorage.textContent = activeStorage === "Alap" ? "Alap" : "Prémium";
+        summaryDesign.textContent = activeDesign === "Standard" ? "Standard kialakítás" : "Egyedi kialakítás";
+        summaryStorage.textContent = activeStorage === "Alap" ? "Alap belső tárolás" : "Prémium belső tárolás";
+        
+        // Részletes árbontás frissítése és ki/be kapcsolása
+        if (breakdownBase) breakdownBase.textContent = `${formatNumber(basePrice)} Ft`;
+        
+        if (breakdownDesignRow && breakdownDesign) {
+            if (isCustomDesign) {
+                breakdownDesign.textContent = `+${formatNumber(PRICING.customDesignExtra)} Ft`;
+                breakdownDesignRow.style.display = 'flex';
+            } else {
+                breakdownDesignRow.style.display = 'none';
+            }
+        }
+        
+        if (breakdownStorageRow && breakdownStorage) {
+            if (isPremiumStorage) {
+                breakdownStorage.textContent = `+${formatNumber(PRICING.premiumStorageExtra)} Ft`;
+                breakdownStorageRow.style.display = 'flex';
+            } else {
+                breakdownStorageRow.style.display = 'none';
+            }
+        }
+        
+        if (breakdownTotal) breakdownTotal.textContent = `${formatNumber(totalPrice)} Ft`;
     };
 
     // Inputok szinkronizálása és eseménykezelése
@@ -422,7 +453,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (calcCtaBtn) {
             calcCtaBtn.addEventListener('click', () => {
                 const length = calcRange.value;
-                const formattedPrice = formatNumber(length * calcConfig.basePricePerMetre);
+                const isCustomDesign = (activeDesign === "Egyedi");
+                const isPremiumStorage = (activeStorage === "Prémium" || activeStorage === "Premium");
+                
+                const basePrice = length * PRICING.pricePerMeter;
+                const designExtra = isCustomDesign ? PRICING.customDesignExtra : 0;
+                const storageExtra = isPremiumStorage ? PRICING.premiumStorageExtra : 0;
+                const totalPrice = basePrice + designExtra + storageExtra;
+                
+                const formattedPrice = formatNumber(totalPrice);
                 
                 // Szövegsablon összeállítása a kért formátumban
                 const messageTemplate = `Tisztelt BC Konyhák!

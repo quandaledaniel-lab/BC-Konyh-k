@@ -1756,6 +1756,49 @@ button, input, textarea, select {
     color: var(--color-white);
 }
 
+/* Részletezett árbontás */
+.result-breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 35px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.15);
+    padding-top: 25px;
+}
+
+.breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.breakdown-label {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.breakdown-val {
+    color: var(--color-white);
+    font-weight: 400;
+}
+
+.breakdown-row.total-row {
+    font-size: 15px;
+    font-weight: 600;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 12px;
+    margin-top: 5px;
+}
+
+.breakdown-row.total-row .breakdown-label {
+    color: var(--color-white);
+}
+
+.breakdown-row.total-row .breakdown-val {
+    color: var(--color-accent);
+    font-size: 18px;
+    font-family: var(--font-serif);
+}
+
 .result-disclaimer {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.5);
