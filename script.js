@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = item.querySelector('.gallery-item-title').textContent;
         
         galleryData.push({
-            src: item.getAttribute('data-src'),
+            src: img.getAttribute('src'),
             alt: img.getAttribute('alt'),
             category: category,
             title: title
