@@ -1457,40 +1457,341 @@ button, input, textarea, select {
 }
 
 /* -------------------------------------------------------------
-   15. GÖRDÜLÉSRE JELENTKEZŐ ANIMÁCIÓK
+   15a. KONYHA ÁRKALKULÁTOR SZEKCIÓ
 ------------------------------------------------------------- */
-.scroll-reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+.calculator-wrapper {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    align-items: flex-start;
+    margin-top: 60px;
 }
 
-.scroll-reveal.revealed {
-    opacity: 1;
-    transform: translateY(0);
+.calc-group {
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 35px;
 }
 
-/* Képcsúsztatásos feltárás */
-.image-reveal-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.calc-group:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.calc-group-title {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 20px;
+}
+
+.calc-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.calc-value-display-wrapper {
+    display: flex;
+    align-items: baseline;
+    white-space: nowrap;
+}
+
+.calc-num-input {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--color-primary);
+    width: 60px;
+    text-align: right;
+    border-bottom: 1px solid var(--color-accent);
+    padding: 0;
+    margin-right: 5px;
+}
+
+/* Chrome, Safari, Edge, Opera: spinbox eltüntetés */
+.calc-num-input::-webkit-outer-spin-button,
+.calc-num-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+.calc-num-input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.calc-unit {
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+/* Elegant Range Slider */
+.range-slider-container {
+    margin-top: 25px;
+    position: relative;
+}
+
+.range-slider {
+    -webkit-appearance: none;
+    appearance: none;
     width: 100%;
-    height: 100%;
+    height: 4px;
+    background: var(--color-border);
+    border-radius: 2px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+.range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    border: 2px solid var(--color-bg);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+    background: var(--color-accent);
+    transform: scale(1.1);
+}
+
+.range-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    border: 2px solid var(--color-bg);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.range-slider::-moz-range-thumb:hover {
+    background: var(--color-accent);
+    transform: scale(1.1);
+}
+
+.range-limits {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--color-text-muted);
+    letter-spacing: 1px;
+}
+
+/* Kártyás választó rács */
+.calc-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.calc-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    padding: 25px 20px;
+    cursor: pointer;
+    display: flex;
+    gap: 15px;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.calc-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+.calc-card.active {
+    border-color: var(--color-primary);
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-medium);
+}
+
+.calc-card-icon {
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-bg);
+    color: var(--color-primary-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    transition: var(--transition-smooth);
+}
+
+.calc-card.active .calc-card-icon {
     background-color: var(--color-primary);
-    transform: scaleX(1);
-    transform-origin: right;
-    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-    z-index: 2;
+    color: var(--color-white);
 }
 
-.image-reveal-container.revealed::after {
-    transform: scaleX(0);
+.calc-card-details {
+    padding-right: 20px;
 }
 
-.image-reveal-container.revealed .reveal-img {
+.calc-card-title {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 5px;
+}
+
+.calc-card-desc {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.calc-card-check {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 16px;
+    color: var(--color-primary);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: var(--transition-smooth);
+}
+
+.calc-card.active .calc-card-check {
+    opacity: 1;
     transform: scale(1);
+}
+
+/* Eredmény Kártya */
+.calculator-result-side {
+    position: sticky;
+    top: 120px;
+}
+
+.result-card-premium {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 50px 40px;
+    border-radius: var(--border-radius-sm);
+    border-left: 4px solid var(--color-accent);
+    box-shadow: var(--shadow-medium);
+}
+
+.result-header {
+    margin-bottom: 25px;
+}
+
+.result-title {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+}
+
+.result-price-display {
+    display: flex;
+    align-items: baseline;
+}
+
+.price-number {
+    font-family: var(--font-serif);
+    font-size: 46px;
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.price-currency {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    margin-left: 8px;
+    color: var(--color-accent);
+}
+
+.result-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.12);
+    margin: 30px 0;
+}
+
+.result-summary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.summary-label {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.summary-val {
+    font-weight: 500;
+    color: var(--color-white);
+}
+
+.result-disclaimer {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+.btn-calc-cta {
+    width: 100%;
+    background-color: var(--color-white);
+    color: var(--color-primary-dark);
+    border: 1px solid var(--color-white);
+    font-weight: 600;
+    gap: 10px;
+}
+
+.btn-calc-cta:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-primary-dark);
+}
+
+/* Megjegyzés sáv */
+.calculator-notice {
+    margin-top: 60px;
+    background-color: var(--color-bg-alt);
+    border-left: 2px solid var(--color-accent);
+    padding: 25px 30px;
+    border-radius: var(--border-radius-sm);
+}
+
+.calculator-notice p {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* -------------------------------------------------------------
@@ -1523,6 +1824,10 @@ button, input, textarea, select {
     
     .process-line {
         display: none;
+    }
+
+    .calculator-wrapper {
+        gap: 50px;
     }
 }
 
@@ -1654,6 +1959,15 @@ button, input, textarea, select {
         top: 20px;
         right: 20px;
     }
+
+    .calculator-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator-result-side {
+        position: relative;
+        top: 0;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1703,5 +2017,17 @@ button, input, textarea, select {
         flex-direction: column;
         gap: 15px;
         text-align: center;
+    }
+
+    .calc-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-card-premium {
+        padding: 35px 25px;
+    }
+
+    .price-number {
+        font-size: 36px;
     }
 }

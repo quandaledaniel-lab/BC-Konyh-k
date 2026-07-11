@@ -287,4 +287,168 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+    
+    
+    // --- 6. KONYHA ÁRKALKULÁTOR LOGIKA ---
+    
+    // Konfigurációs objektum a könnyű módosíthatóságért
+    const calcConfig = {
+        basePricePerMetre: 1000000, // 1 000 000 Ft folyóméterenként
+        designModifiers: {
+            Standard: 0,
+            Egyedi: 0
+        },
+        storageModifiers: {
+            Alap: 0,
+            Premium: 0
+        }
+    };
+
+    const calcRange = document.getElementById('calc-range');
+    const calcLengthNum = document.getElementById('calc-length-num');
+    const calcPriceValue = document.getElementById('calc-price-value');
+    
+    const summaryLength = document.getElementById('summary-length');
+    const summaryDesign = document.getElementById('summary-design');
+    const summaryStorage = document.getElementById('summary-storage');
+    const calcCtaBtn = document.getElementById('calc-cta-btn');
+    
+    const designCards = document.querySelectorAll('#design-type-grid .calc-card');
+    const storageCards = document.querySelectorAll('#storage-type-grid .calc-card');
+    const contactMessage = document.getElementById('form-message');
+    
+    let activeDesign = "Standard";
+    let activeStorage = "Alap";
+    let currentPrice = 8000000; // Kezdeti ár (8 folyóméter * 1M)
+
+    // Formázási segédfüggvény (pl. 8000000 -> 8 000 000)
+    const formatNumber = (num) => {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    };
+
+    // Árváltozás animálása (számok pörgése)
+    let animationFrameId = null;
+    const animatePrice = (targetPrice) => {
+        const duration = 400; // animáció hossza ms-ben
+        const startTime = performance.now();
+        const startPrice = currentPrice;
+        
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+        }
+        
+        const updateNumber = (now) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Ease out quad függvény a lassuló lefutáshoz
+            const easeProgress = progress * (2 - progress);
+            
+            const interimPrice = Math.round(startPrice + (targetPrice - startPrice) * easeProgress);
+            calcPriceValue.textContent = formatNumber(interimPrice);
+            
+            if (progress < 1) {
+                animationFrameId = requestAnimationFrame(updateNumber);
+            } else {
+                currentPrice = targetPrice;
+                calcPriceValue.textContent = formatNumber(targetPrice);
+            }
+        };
+        
+        animationFrameId = requestAnimationFrame(updateNumber);
+    };
+
+    // Árkalkuláció végrehajtása
+    const calculatePrice = () => {
+        const length = parseInt(calcRange.value, 10) || 5;
+        
+        // Számítási képlet: hossz * 1 000 000 Ft
+        const totalPrice = length * calcConfig.basePricePerMetre;
+        
+        // Animált kiíratás indítása
+        animatePrice(totalPrice);
+        
+        // Összegző kártya frissítése
+        summaryLength.textContent = `${length} folyóméter`;
+        summaryDesign.textContent = activeDesign === "Standard" ? "Standard" : "Egyedi";
+        summaryStorage.textContent = activeStorage === "Alap" ? "Alap" : "Prémium";
+    };
+
+    // Inputok szinkronizálása és eseménykezelése
+    const handleLengthChange = (value) => {
+        let length = parseInt(value, 10);
+        
+        // Határértékek kezelése
+        if (isNaN(length) || length < 5) length = 5;
+        if (length > 15) length = 15;
+        
+        calcRange.value = length;
+        calcLengthNum.value = length;
+        
+        calculatePrice();
+    };
+
+    if (calcRange && calcLengthNum) {
+        calcRange.addEventListener('input', (e) => {
+            calcLengthNum.value = e.target.value;
+            calculatePrice();
+        });
+
+        calcLengthNum.addEventListener('change', (e) => {
+            handleLengthChange(e.target.value);
+        });
+
+        // Kialakítás kártyák kattintás kezelése
+        designCards.forEach(card => {
+            card.addEventListener('click', () => {
+                designCards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+                activeDesign = card.getAttribute('data-value');
+                calculatePrice();
+            });
+        });
+
+        // Tárolás kártyák kattintás kezelése
+        storageCards.forEach(card => {
+            card.addEventListener('click', () => {
+                storageCards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+                activeStorage = card.getAttribute('data-value');
+                calculatePrice();
+            });
+        });
+
+        // CTA Ajánlatkérés gomb eseménykezelője (görgetés és automatikus kitöltés)
+        if (calcCtaBtn) {
+            calcCtaBtn.addEventListener('click', () => {
+                const length = calcRange.value;
+                const formattedPrice = formatNumber(length * calcConfig.basePricePerMetre);
+                
+                // Szövegsablon összeállítása a kért formátumban
+                const messageTemplate = `Tisztelt BC Konyhák!
+
+Szeretnék személyre szabott ajánlatot kérni.
+
+Konyha becsült hossza: ${length} folyóméter
+Kialakítás: ${activeDesign}
+Belső tárolás: ${activeStorage}
+Előzetesen becsült ár: ${formattedPrice} Ft`;
+
+                // Mező értékének beállítása
+                if (contactMessage) {
+                    contactMessage.value = messageTemplate;
+                    
+                    // Fókuszálás az űrlap mezőre
+                    contactMessage.focus();
+                }
+                
+                // Lágy görgetés a kapcsolatfelvételi űrlaphoz
+                const contactSection = document.getElementById('kapcsolat');
+                if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        }
+    }
 });
+

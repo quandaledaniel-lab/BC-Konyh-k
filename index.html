@@ -35,6 +35,7 @@
                     <li><a href="#szolgaltatasok" class="nav-link">Szolgáltatások</a></li>
                     <li><a href="#kiemelt" class="nav-link">Kiemelt Projekt</a></li>
                     <li><a href="#galeria" class="nav-link">Galéria</a></li>
+                    <li><a href="#kalkulator" class="nav-link">Kalkulátor</a></li>
                     <li><a href="#folyamat" class="nav-link">Munkafolyamat</a></li>
                     <li><a href="#kapcsolat" class="nav-link nav-btn">Ajánlatkérés</a></li>
                 </ul>
@@ -272,12 +273,22 @@
                         </div>
                     </div>
 
-                    <!-- Kép 5 (Álló / Kávézó állomás) -->
-                    <div class="gallery-item size-tall" data-index="4" data-src="assets/images/coffee_station.jpg">
+                    <!-- Kép 5 (Normál / Kávézó állomás) -->
+                    <div class="gallery-item" data-index="4" data-src="assets/images/coffee_station.jpg">
                         <img src="assets/images/coffee_station.jpg" alt="Integrált kávézóállomás tölgyfa polcokkal és olívazöld frontokkal">
                         <div class="gallery-item-overlay">
                             <span class="gallery-item-category">Funkció</span>
                             <h4 class="gallery-item-title">Beépített kávézó és sütő szekció</h4>
+                            <span class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Kép 6 (Nagy vízszintes / Klasszikus tölgyfa szekrény és polcrendszer) -->
+                    <div class="gallery-item size-large" data-index="5" data-src="assets/images/oak_shelving.jpg">
+                        <img src="assets/images/oak_shelving.jpg" alt="Klasszikus egyedi tölgyfa szekrény és polcrendszer könyvekkel és kiegészítőkkel">
+                        <div class="gallery-item-overlay">
+                            <span class="gallery-item-category">Asztalosmunka</span>
+                            <h4 class="gallery-item-title">Egyedi tölgyfa falburkolat és polcok</h4>
                             <span class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
                         </div>
                     </div>
@@ -335,6 +346,129 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Konyha árkalkulátor szekció -->
+        <section id="kalkulator" class="calculator-section section-padding scroll-reveal">
+            <div class="container">
+                <div class="section-header center-align">
+                    <span class="section-tag">ÁRBECSLÉS</span>
+                    <h2 class="section-title">Konyha árkalkulátor</h2>
+                    <div class="divider center"></div>
+                    <p class="section-subtitle">Állítsa be konyhája hozzávetőleges méretét és kialakítását, hogy azonnali előzetes árbecslést kapjon.</p>
+                </div>
+
+                <div class="calculator-wrapper">
+                    <div class="calculator-inputs-side">
+                        <!-- 1. Konyha hossza -->
+                        <div class="calc-group">
+                            <div class="calc-label-row">
+                                <label for="calc-range" class="calc-group-title">A konyhabútor teljes hossza</label>
+                                <div class="calc-value-display-wrapper">
+                                    <input type="number" id="calc-length-num" min="5" max="15" value="8" class="calc-num-input">
+                                    <span class="calc-unit">folyóméter</span>
+                                </div>
+                            </div>
+                            <div class="range-slider-container">
+                                <input type="range" id="calc-range" min="5" max="15" value="8" class="range-slider">
+                                <div class="range-limits">
+                                    <span>5 m</span>
+                                    <span>10 m</span>
+                                    <span>15 m</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Kialakítás típus -->
+                        <div class="calc-group">
+                            <span class="calc-group-title">Kialakítás</span>
+                            <div class="calc-cards-grid" id="design-type-grid">
+                                <div class="calc-card active" data-value="Standard">
+                                    <div class="calc-card-icon"><i class="fa-solid fa-shapes"></i></div>
+                                    <div class="calc-card-details">
+                                        <h4 class="calc-card-title">Standard kialakítás</h4>
+                                        <p class="calc-card-desc">Letisztult, jól bevált megoldások, praktikus elrendezéssel.</p>
+                                    </div>
+                                    <div class="calc-card-check"><i class="fa-solid fa-circle-check"></i></div>
+                                </div>
+                                <div class="calc-card" data-value="Egyedi">
+                                    <div class="calc-card-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                                    <div class="calc-card-details">
+                                        <h4 class="calc-card-title">Egyedi kialakítás</h4>
+                                        <p class="calc-card-desc">Teljesen személyre szabott tervezés, különleges méretek és egyedi részletek.</p>
+                                    </div>
+                                    <div class="calc-card-check"><i class="fa-solid fa-circle-check"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Belső tárolás -->
+                        <div class="calc-group">
+                            <span class="calc-group-title">Belső tárolási megoldások</span>
+                            <div class="calc-cards-grid" id="storage-type-grid">
+                                <div class="calc-card active" data-value="Alap">
+                                    <div class="calc-card-icon"><i class="fa-solid fa-border-all"></i></div>
+                                    <div class="calc-card-details">
+                                        <h4 class="calc-card-title">Alap belső tárolás</h4>
+                                        <p class="calc-card-desc">Praktikus polcok, fiókok és hagyományos belső rendszerek.</p>
+                                    </div>
+                                    <div class="calc-card-check"><i class="fa-solid fa-circle-check"></i></div>
+                                </div>
+                                <div class="calc-card" data-value="Prémium">
+                                    <div class="calc-card-icon"><i class="fa-solid fa-boxes-packing"></i></div>
+                                    <div class="calc-card-details">
+                                        <h4 class="calc-card-title">Prémium belső tárolás</h4>
+                                        <p class="calc-card-desc">Fejlett kihúzható rendszerek, belső fiókok és egyedi tárolási megoldások.</p>
+                                    </div>
+                                    <div class="calc-card-check"><i class="fa-solid fa-circle-check"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calculator-result-side">
+                        <div class="result-card-premium">
+                            <div class="result-header">
+                                <span class="result-title">Becsült induló ár</span>
+                                <div class="result-price-display">
+                                    <span id="calc-price-value" class="price-number">8 000 000</span>
+                                    <span class="price-currency">Ft</span>
+                                </div>
+                            </div>
+                            
+                            <div class="result-divider"></div>
+                            
+                            <div class="result-summary-list">
+                                <div class="summary-row">
+                                    <span class="summary-label">Konyha hossza:</span>
+                                    <span class="summary-val" id="summary-length">8 folyóméter</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Kialakítás:</span>
+                                    <span class="summary-val" id="summary-design">Standard kialakítás</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Belső tárolás:</span>
+                                    <span class="summary-val" id="summary-storage">Alap belső tárolás</span>
+                                </div>
+                            </div>
+                            
+                            <div class="result-disclaimer">
+                                A becslés nem tartalmazza a háztartási gépeket, valamint az egyedi műszaki vagy különleges anyagigényeket.
+                            </div>
+                            
+                            <button id="calc-cta-btn" class="btn btn-primary btn-calc-cta">
+                                <span>Személyre szabott ajánlatot kérek</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calculator-notice">
+                    <p><strong>Fontos megjegyzés:</strong> Az itt megjelenő összeg tájékoztató jellegű előzetes becslés. A végleges árat a pontos méretek, az anyagválasztás, a műszaki tartalom és a helyszíni felmérés határozza meg.</p>
                 </div>
             </div>
         </section>
@@ -502,6 +636,7 @@
                     <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
                     <li><a href="#kiemelt">Kiemelt Projekt</a></li>
                     <li><a href="#galeria">Galéria</a></li>
+                    <li><a href="#kalkulator">Kalkulátor</a></li>
                     <li><a href="#folyamat">Folyamat</a></li>
                 </ul>
             </div>
